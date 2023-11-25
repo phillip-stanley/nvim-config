@@ -32,6 +32,14 @@ require("lazy").setup(
             name = "treesitter",
             lazy = false,
         },
+        {
+            "nvim-telescope/telescope.nvim",
+            dependencies = { "nvim-lua/plenary.nvim" },
+        },
+        {
+            "nvim-lualine/lualine.nvim",
+            dependencies = { "nvim-lua/plenary.nvim" },
+        },
     },
     {
         defaults = { lazy = true },
