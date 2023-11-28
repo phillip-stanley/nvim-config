@@ -1,3 +1,4 @@
+-- plugin setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -39,6 +40,32 @@ require("lazy").setup(
         {
             "nvim-lualine/lualine.nvim",
             dependencies = { "nvim-lua/plenary.nvim" },
+        },
+        -- LSP plugings
+        {
+            "neovim/nvim-lspconfig",
+            name = "lspconfig",
+        },
+        {
+            "williamboman/mason.nvim",
+            name = "mason",
+        },
+        {
+            "williamboman/mason-lspconfig.nvim",
+            name = "mason lspconfig",
+        },
+        {
+            "hrsh7th/nvim-cmp",
+            name = "nvim cmp",
+        },
+        {
+            "hrsh7th/cmp-nvim-lsp",
+            name = "cmp nvim lsp",
+        },
+        {
+            "L3MON4D3/LuaSnip",
+            version = "v2.*",
+            build = "make install_jsregexp",
         },
     },
     {
