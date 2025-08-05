@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("plugins.git"),
 	require("plugins.ui_improvements"),
 	require("plugins.formatting"),
+	require("plugins.database"),
 	"LazyVim/LazyVim",
 	optional = true,
 	opts = {
