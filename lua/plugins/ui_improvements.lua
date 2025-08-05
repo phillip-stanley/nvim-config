@@ -5,7 +5,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "catppuccin-mocha",
+					theme = "gruvbox-material",
 					component_separators = "|",
 					section_separators = "",
 				},
