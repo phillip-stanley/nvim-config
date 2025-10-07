@@ -12,6 +12,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 		},
 	},
+
 	-- Mason for easy LSP/DAP/Linter/Formatter management
 	{
 		"williamboman/mason.nvim",
@@ -19,38 +20,47 @@ return {
 			require("mason").setup({})
 		end,
 	},
+
 	-- Mason LSP config - bridges mason with nvim-lspconfig
 	{
 		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					-- lua language server
 					"lua_ls",
-					"stylua",
 
 					-- python servers
 					"pyright", -- Microsoft's Python type checker and language server
 					"ruff_lsp", -- Fast python linter
 
 					-- Javascript/Typescript servers
-					"typescript-language-server",
-					"eslint-lsp",
+					"ts_ls", -- Updated name for typescript-language-server
+					"eslint",
 
 					-- Web development
-					"html-lsp",
-					"css-lsp",
-					"tailwindcss-language-server",
+					"html",
+					"cssls",
+					"tailwindcss",
 				},
 				automatic_installation = true,
 			})
 		end,
 	},
+<<<<<<< Updated upstream
 	{
 		-- Neovim LSP configuration
 
+=======
+
+	-- Neovim LSP configuration - SEPARATE PLUGIN SPEC
+	{
+>>>>>>> Stashed changes
 		"neovim/nvim-lspconfig",
 		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 		},
@@ -84,6 +94,16 @@ return {
 				capabilities = capabilities,
 				settings = {
 					javascript = {
+						inlayHints = {
+							includeInlayEnumMemberValueHints = true,
+							includeInlayFunctionLikeReturnTypeHints = true,
+							includeInlayParameterNameHints = "all",
+							includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+							includeInlayPropertyDeclarationTypeHints = true,
+							includeInlayVariableTypeHints = true,
+						},
+					},
+					typescript = {
 						inlayHints = {
 							includeInlayEnumMemberValueHints = true,
 							includeInlayFunctionLikeReturnTypeHints = true,
@@ -146,6 +166,15 @@ return {
 					vim.keymap.set("n", "<space>f", function()
 						vim.lsp.buf.format({ async = true })
 					end, opts)
+				end,
+			})
+
+			-- Add this for debugging - remove later
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("LspDebug", {}),
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					print("LSP attached: " .. client.name .. " to buffer " .. args.buf)
 				end,
 			})
 		end,

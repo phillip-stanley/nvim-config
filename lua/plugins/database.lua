@@ -14,10 +14,10 @@ return {
 			"DBUIFindBuffer",
 		},
 		keys = {
-			{ "<leader>db", "<cmd>DBUIToggle<cr>", desc = "DB: Toggle UI" },
-			{ "<leader>df", "<cmd>DBUIFindBuffer<cr>", desc = "DB: Find buffer" },
-			{ "<leader>dr", "<cmd>DBUIRenameBuffer<cr>", desc = "DB: Rename buffer" },
-			{ "<leader>dl", "<cmd>DBUILastQueryInfo<cr>", desc = "DB: Last query info" },
+			{ "<leader>ab", "<cmd>DBUIToggle<cr>", desc = "DB: Toggle UI" },
+			{ "<leader>af", "<cmd>DBUIFindBuffer<cr>", desc = "DB: Find buffer" },
+			{ "<leader>ar", "<cmd>DBUIRenameBuffer<cr>", desc = "DB: Rename buffer" },
+			{ "<leader>al", "<cmd>DBUILastQueryInfo<cr>", desc = "DB: Last query info" },
 		},
 		config = function()
 			-- Database connection configurations

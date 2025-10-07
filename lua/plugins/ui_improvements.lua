@@ -20,7 +20,11 @@ return {
 	},
 	{
 		"folke/zen-mode.nvim",
-		opts = {},
+		opts = {
+			window = {
+				width = 150,
+			},
+		},
 	},
 	"folke/which-key.nvim",
 	event = "VeryLazy",

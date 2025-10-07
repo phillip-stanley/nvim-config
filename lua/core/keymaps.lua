@@ -21,9 +21,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Go to previous tab" })
 -- Misc convenience
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
+keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "open Neotree" })
+keymap.set("n", "<leader>Z", ":ZenMode<CR>", { desc = "toggle ZenMode" })
 
 -- Visual mode mappings
 -- Move selected lines up and down
 keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
-
