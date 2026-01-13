@@ -23,6 +23,7 @@ vim.opt.rtp:prepend(layzypath)
 -- Configure plugings
 require("lazy").setup({
 	require("core.themes"),
+	require("plugins.markdown"),
 	require("plugins.lsp"),
 	require("plugins.completion"),
 	require("plugins.telescope"),
@@ -32,7 +33,7 @@ require("lazy").setup({
 	require("plugins.formatting"),
 	require("plugins.database"),
 	require("plugins.neotree"),
-	require("plugins.debugging"),
+	--require("plugins.debugging"),
 	"LazyVim/LazyVim",
 	optional = true,
 	opts = {

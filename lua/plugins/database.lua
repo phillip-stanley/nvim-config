@@ -52,7 +52,7 @@ return {
 			-- Setup SQL language server
 			local lspconfig = require("lspconfig")
 
-			lspconfig.sqls.setup({
+			vim.lsp.config("sqls", {
 				on_attach = function(client, bufnr)
 					require("sqls").on_attach(client, bufnr)
 
